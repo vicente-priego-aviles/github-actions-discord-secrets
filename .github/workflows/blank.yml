@@ -1,0 +1,25 @@
+name: github actions discord secretes 
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get the time
+        id: time
+        run : |
+          NOW=$(date + "%r")
+          echo "now=${NOW}" >> $GITHUB_OUTPUT
+        env:
+          TZ : Europe/Madrid
+      - name: Send the time
+        uses: Satak/webrequest-action@v1.2.3
+        with:
+          url: https://discordapp.com/api/webhooks/1303725631627984986/95kn6YplsHsqGWgMgtZrC3X7p6CRTbf75Etx77qOzEHnfvXVRmh9YprA5IoJD70N5S1Z
+          method: POST
+          payload: '{ "content": "The workflow ran at ${{steps.time.outputs.now}}!" }'
+            
+
