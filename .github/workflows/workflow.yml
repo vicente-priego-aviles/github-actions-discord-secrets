@@ -18,7 +18,7 @@ jobs:
       - name: Send the time
         uses: Satak/webrequest-action@v1.2.3
         with:
-          url: https://discordapp.com/api/webhooks/1303725631627984986/95kn6YplsHsqGWgMgtZrC3X7p6CRTbf75Etx77qOzEHnfvXVRmh9YprA5IoJD70N5S1Z
+          url: ${{DISCORD_GITHUB_ACTIONS_CHANNEL_WEBHOOK}}
           method: POST
           payload: '{ "content": "The workflow ran at ${{steps.time.outputs.now}}!" }'
             
