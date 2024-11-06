@@ -11,7 +11,7 @@ jobs:
       - name: Get the time
         id: time
         run : |
-          NOW=$(date + "%r")
+          NOW=$(date)
           echo "now=${NOW}" >> $GITHUB_OUTPUT
         env:
           TZ : Europe/Madrid
