@@ -18,7 +18,7 @@ jobs:
       - name: Send the time
         uses: Satak/webrequest-action@v1.2.3
         with:
-          url: ${{DISCORD_GITHUB_ACTIONS_CHANNEL_WEBHOOK}}
+          url: ${{ secrets.DISCORD_GITHUB_ACTIONS_CHANNEL_WEBHOOK }}
           method: POST
           payload: '{ "content": "The workflow ran at ${{steps.time.outputs.now}}!" }'
             
